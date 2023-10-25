@@ -60,18 +60,19 @@ Le fichier est généré de la façon suivante :
   - Si le programme utilise un fichier pré-existant, les couples hash-clair calculés sont ajoutés à la fin du fichier existant.
 
 
-# Help !
+# hasheur --help
+
 Génération de la hashtable à partir du dictionnaire :
-        hasheur.exe -G <fichier_dictionnaire> <fichier_hashtable> (-a ALGO)
-         <fichier_dictionnaire> : fichier contenant les mots à hasher
-         <fichier_hashtable> : fichier de sortie contenant les hashs et les mots en clair. Si le fichier existe déjà, les hashs seront ajoutés à la suite, même si d'algorithme différent.
-         -a ALGO : algorithme de hachage à utiliser (facultatif. Par défaut, sha256 sera utilisé)
-        Algorithmes de hachage supportés : celles de la librairie OpenSSL
-                Exemples : sha1, sha256, md5...
+&nbsp;&nbsp;&nbsp;hasheur.exe -G <fichier_dictionnaire> <fichier_hashtable> (-a ALGO)        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fichier_dictionnaire> : fichier contenant les mots à hasher      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fichier_hashtable> : fichier de sortie contenant les hashs et les mots en clair. Si le fichier existe déjà, les hashs seront ajoutés à la suite, même si d'algorithme différent.         
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-a ALGO : algorithme de hachage à utiliser (facultatif. Par défaut, sha256 sera utilisé)
+&nbsp;&nbsp;&nbsp;&nbsp;Algorithmes de hachage supportés : celles de la librairie OpenSSL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemples : sha1, sha256, md5...
 
 Recherche de hashs dans la hashtable :
-        cat MesHash | hasheur.exe -L <fichier_hastable>
-         <fichier_hastable> : fichier contenant les hashs et les mots en clair, avec "\n" comme séparateur de ligne.
+&nbsp;&nbsp;&nbsp;&nbsp;cat MesHash | hasheur.exe -L <fichier_hastable>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fichier_hastable> : fichier contenant les hashs et les mots en clair, avec "\n" comme séparateur de ligne.
 
 Affichage de l'aide :
-        hasheur.exe -H
+&nbsp;&nbsp;&nbsp;hasheur.exe -H

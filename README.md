@@ -29,6 +29,7 @@ L'application permet 2 modes de fonctionnement :
 Le 1er mode s'appelle avec l'option "-G", et permet de prendre un dictionnaire comme fichier d'entrée, de générer un hash de chaque entrée de ce dictionnaire, et mettre le hash et le clair dans un fichier de sortie.
 
 Exemple d'utilisation : vous avez un fichier dictionnaire rockyou.txt, vous allez générer un fichier rainbow.txt pour l'algorithme sha1
+
 *hasheur.exe -G /path/to/rockyou.txt /path/to/rainbow.txt -a sha1*
 
 Selon les performances de l'ordinateur sur lequel le programme est exécuté et l'algorithme choisi, il faut compter environ 1 minute pour 10 millions de lignes d'entrée.
@@ -37,7 +38,8 @@ Selon les performances de l'ordinateur sur lequel le programme est exécuté et 
 Le 2e mode s'appelle avec l'option "-L", et permet passer des hash par l'entrée standard, et de les rechercher dans le fichier dont le nom est passé en paramètre. Les hash dont les antécédants sont trouvés sortent par la sortie standard.
 Le programme va parcourir le fichier de hash et le monter en mémoire, puis faire la recherche des hashs passés en entrée standard.
 
-Exemple d'utilisation : vous avez le fichier rainbow.txt qui contient les hash / clairs, et un fichier hash.txt qui contient les hash pour lesquels on cherche les clairs 
+Exemple d'utilisation : vous avez le fichier rainbow.txt qui contient les hash / clairs, et un fichier hash.txt qui contient les hash pour lesquels on cherche les clairs.
+
 *cat hash.txt | hasheur.exe -L /path/to/rainbow.txt*
 
 Selon les performances de l'ordinateur sur lequel le programme est exécuté, il faut compter environ 1 minute pour mettre en mémoire 15 millions de lignes d'entrée, puis la recherche est quasi instantanée.

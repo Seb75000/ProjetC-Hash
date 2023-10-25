@@ -61,6 +61,9 @@ Le fichier est généré de la façon suivante :
   - Les hash peuvent être mixtes (un même fichier peut avoir des hashs md5, sha1 etc)
   - Si le programme utilise un fichier pré-existant, les couples hash-clair calculés sont ajoutés à la fin du fichier existant.
 
+## L'entrée standard des hash à rechercher
+
+Les hash recherchés sont séparés par un saut de ligne au format "\n".
 
 # hasheur --help
 

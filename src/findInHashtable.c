@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <time.h>
 
 // Limite arbitraire à la taille d'une ligne de fichier texte d'origine
@@ -91,9 +92,12 @@ int findInHashtable (int argc, char* argv[]){
     int nbHash = 0;
 
     // d'abord on récupère le stdin, qu'on stocke dans une liste à traiter ensuite
-    int max_lines = 1000; // Nombre maximum de lignes à lire
-    char buffer[100];   // Chaque ligne fait max 64 caractères
+    int max_lines = 1000; // Nombre maximum de lignes du stdin
+    char buffer[100];   // Chaque ligne fait max 64 caractères pour du SHA512, donc 100 devraient suffire. Oups, j'ai déjà entendu ça quelque part...
     char* lines[max_lines]; // Tableau de pointeurs vers des lignes
+
+    
+    
 
     int line_count = 0;
     while (line_count < max_lines && fgets(buffer, sizeof(buffer), stdin) != NULL) {
@@ -102,7 +106,10 @@ int findInHashtable (int argc, char* argv[]){
         if (length > 0 && buffer[length - 1] == '\n') {
             buffer[length - 1] = '\0'; // Remplacer '\n' par '\0'
         }
-
+        // conversion en minuscules, pour conformité avec le dictionnaire
+        for (int i = 0; buffer[i]; i++) {
+            buffer[i] = tolower(buffer[i]);
+        }
         lines[line_count] = malloc(strlen(buffer) + 1);
         strcpy(lines[line_count], buffer);
         line_count++;
@@ -161,15 +168,6 @@ int findInHashtable (int argc, char* argv[]){
         }        
         free(lines[i]); // Libérer la mémoire allouée pour chaque ligne
     }
-
-    // // Recherche du noeud à partir d'un hash   
-    // // ici pour "iloveyou08"
-    // node_t* recherche = searchNode(root, "267283dd9ebdcc14c5343623ea6b5fb0a3312f4066c65d196fb23019052d1511");
-    // if (recherche != NULL) {
-    //     printf("Clair : %s, Hash : %s\n", recherche->clair, recherche->hash);
-    // } else {
-    //     printf("Noeud non trouvé.\n");
-    // }
 
     finex = clock();
     temps_ecoule = (double)(finex - debex) / CLOCKS_PER_SEC;

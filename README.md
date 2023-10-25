@@ -65,6 +65,7 @@ Le fichier est généré de la façon suivante :
 
 Les hash recherchés sont séparés par un saut de ligne au format "\n".
 
+
 # hasheur --help
 
 Génération de la hashtable à partir du dictionnaire :

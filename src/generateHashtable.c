@@ -38,7 +38,7 @@ int generateHashtable(int argc, char* argv[]){
 
         char ligne[MAX_LINE_LENGTH];
         // while (fgets(ligne, MAX_LINE_LENGTH, fileIn) && nbLignes < 1000000) { // pour limiter le nombre de lignes traitées, sinon on meurt de vieillesse avec valgrind :(
-        while (fgets(ligne, MAX_LINE_LENGTH, fileIn) && nbLignes < 1000000) {
+        while (fgets(ligne, MAX_LINE_LENGTH, fileIn)) {
             // On s'assure que la ligne se termine par un caractère nul,
             // sinon le hash va porter sur des caractères en trop.
             int len = strlen(ligne);

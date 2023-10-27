@@ -92,7 +92,7 @@ int findInHashtable (int argc, char* argv[]){
     int nbHash = 0;
 
     // d'abord on récupère le stdin, qu'on stocke dans une liste à traiter ensuite
-    int max_lines = 1000; // Nombre maximum de lignes du stdin
+    int max_lines = 1000000; // Nombre maximum de lignes du stdin
     char buffer[100];   // Chaque ligne fait max 64 caractères pour du SHA512, donc 100 devraient suffire. Oups, j'ai déjà entendu ça quelque part...
     char* lines[max_lines]; // Tableau de pointeurs vers des lignes
 
